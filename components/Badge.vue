@@ -1,11 +1,13 @@
 <template>
   <div class="badge" :style="{ backgroundColor: badge.color }">
-    <BadgeAvatar :name="badge.name" />
-    <div>
-      <strong>{{ badge.name }}</strong> is a
-      <strong>{{ badge.title }}</strong> in
-      <strong>{{ badge.location }}</strong> earning
-      <strong>{{ badge.salary }}</strong>
+    <div class="badge-content">
+      <BadgeAvatar :name="badge.name" />
+      <div class="badge-text">
+        <strong>{{ badge.name }}</strong> is a
+        <strong>{{ badge.title }}</strong> in
+        <strong>{{ badge.location }}</strong> earning
+        <strong>{{ badge.salary }}</strong>
+      </div>
     </div>
   </div>
 </template>
@@ -15,6 +17,7 @@ import type { Badge } from "~/types";
 
 defineProps<{
   badge: Badge;
+  transitionName?: string;
 }>();
 </script>
 
@@ -27,5 +30,19 @@ defineProps<{
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  view-transition-name: v-bind(transitionName);
+}
+
+.badge-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.badge-text {
+  text-align: center;
+  line-height: 1.4;
 }
 </style>

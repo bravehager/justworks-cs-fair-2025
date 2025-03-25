@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Badge :badge="badge" />
+    <Badge :badge="badge" :transition-name="`badge-${badge.id}`" />
   </div>
 </template>
 
@@ -17,6 +17,5 @@ const badge = await $fetch<Badge>(`/api/badges/${route.params.badgeId}`);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 </style>
