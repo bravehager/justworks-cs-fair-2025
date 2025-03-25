@@ -20,6 +20,7 @@ defineProps<{
 
 <style scoped>
 .badge {
+  max-width: 200px;
   border-radius: 20px;
   padding: 1rem;
   display: flex;

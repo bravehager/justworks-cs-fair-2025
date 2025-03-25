@@ -1,6 +1,12 @@
 <template>
   <div class="badge-gallery">
-    <Badge v-for="badge in badges" :key="badge.id" :badge="badge" />
+    <NuxtLink
+      v-for="badge in badges"
+      :key="badge.id"
+      :to="`/badges/${badge.id}`"
+    >
+      <Badge :badge="badge" />
+    </NuxtLink>
   </div>
 </template>
 
