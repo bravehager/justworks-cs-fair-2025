@@ -1,32 +1,11 @@
 <template>
   <div class="badge-gallery">
-    <div
-      v-for="badge in badges"
-      :key="badge.id"
-      class="badge"
-      :style="{ backgroundColor: badge.color }"
-    >
-      <div>
-        <strong>{{ badge.name }}</strong> is a
-        <strong>{{ badge.title }}</strong> in
-        <strong>{{ badge.location }}</strong> earning
-        <strong>{{ badge.salary }}</strong>
-      </div>
-    </div>
+    <Badge v-for="badge in badges" :key="badge.id" :badge="badge" />
   </div>
 </template>
 
 <script setup lang="ts">
-interface Badge {
-  id: number;
-  name: string;
-  title: string;
-  location: string;
-  salary: string;
-  color: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import type { Badge } from "~/types";
 
 defineProps<{
   badges: Badge[];
@@ -38,10 +17,5 @@ defineProps<{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
-}
-
-.badge {
-  border-radius: 20px;
-  padding: 1rem;
 }
 </style>

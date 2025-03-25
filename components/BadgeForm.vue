@@ -1,5 +1,6 @@
 <template>
   <h1>Create a badge</h1>
+
   <form @submit.prevent="handleSubmit" class="form">
     <div>
       <label for="name">Name</label>
@@ -25,6 +26,8 @@
       <label for="color">Color</label>
       <input type="color" id="color" v-model="form.color" required />
     </div>
+
+    <BadgeAvatar :name="form.name" />
 
     <button type="submit">Submit</button>
   </form>
