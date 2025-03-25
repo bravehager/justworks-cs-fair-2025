@@ -1,6 +1,6 @@
 <template>
   <h1>Create a badge</h1>
-  <form @submit.prevent="handleSubmit">
+  <form @submit.prevent="handleSubmit" class="form">
     <div>
       <label for="name">Name</label>
       <input type="text" id="name" v-model="form.name" required />
@@ -51,3 +51,16 @@ async function handleSubmit() {
   await router.push("/");
 }
 </script>
+
+<style scoped>
+.form {
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    margin-bottom: 1rem;
+  }
+}
+</style>
