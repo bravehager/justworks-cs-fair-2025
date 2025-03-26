@@ -1,4 +1,7 @@
 <template>
+  <NuxtLink class="page-link" :to="{ name: 'badges-new' }">
+    Create a new badge
+  </NuxtLink>
   <BadgeGallery :badges="badges" />
 </template>
 

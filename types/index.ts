@@ -5,6 +5,7 @@ export type Badge = {
   location: string;
   salary: string;
   color: string;
+  borough: string;
   createdAt: string;
   updatedAt: string;
 };

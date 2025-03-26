@@ -6,7 +6,8 @@
         <strong>{{ badge.name }}</strong> is a
         <strong>{{ badge.title }}</strong> in
         <strong>{{ badge.location }}</strong> earning
-        <strong>{{ badge.salary }}</strong>
+        <strong>{{ badge.salary }}</strong> from
+        <strong>{{ badge.borough }}</strong>
       </div>
     </div>
   </div>
