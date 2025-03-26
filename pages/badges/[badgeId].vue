@@ -28,7 +28,7 @@ const badge = await $fetch<Badge>(`/api/badges/${route.params.badgeId}`);
   border-radius: 0.5rem;
   text-decoration: none;
   color: #000;
-  background-color: #52b0ff;
+  background-color: #0070d4;
   width: fit-content;
   transition: transform 0.3s ease;
 

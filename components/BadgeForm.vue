@@ -23,6 +23,17 @@
     </div>
 
     <div>
+      <label for="borough">Borough</label>
+      <select id="borough" v-model="form.borough" required>
+        <option value="Manhattan">Manhattan</option>
+        <option value="Brooklyn">Brooklyn</option>
+        <option value="Queens">Queens</option>
+        <option value="The Bronx">The Bronx</option>
+        <option value="Staten Island">Staten Island</option>
+      </select>
+    </div>
+
+    <div>
       <label for="color">Color</label>
       <input type="color" id="color" v-model="form.color" required />
     </div>
@@ -42,6 +53,7 @@ const form = ref({
   location: "",
   salary: "",
   color: defaultColor,
+  borough: "",
 });
 
 const router = useRouter();
