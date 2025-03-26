@@ -1,6 +1,4 @@
 <template>
-  <h1>Create a badge</h1>
-
   <form @submit.prevent="handleSubmit" class="form">
     <div>
       <label for="name">Name</label>
@@ -29,29 +27,45 @@
 
     <BadgeAvatar :name="form.name" />
 
-    <button type="submit">Submit</button>
+    <button type="submit">Save</button>
   </form>
 </template>
 
 <script setup lang="ts">
+import type { Badge } from "~/types";
+
 const defaultColor = "#0070d4";
 
+const props = defineProps<{
+  badge?: Badge;
+}>();
+
 const form = ref({
-  name: "",
-  title: "",
-  location: "",
-  salary: "",
-  color: defaultColor,
+  name: props.badge?.name || "",
+  title: props.badge?.title || "",
+  location: props.badge?.location || "",
+  salary: props.badge?.salary || "",
+  color: props.badge?.color || defaultColor,
 });
 
 const router = useRouter();
 
 async function handleSubmit() {
-  await $fetch("/api/badges", {
-    method: "post",
-    body: form.value,
-  });
-  await router.push("/");
+  let response;
+  if (props.badge) {
+    response = await $fetch(`/api/badges/${props.badge.id}`, {
+      method: "put",
+      body: form.value,
+    });
+  } else {
+    response = await $fetch("/api/badges", {
+      method: "post",
+      body: form.value,
+    });
+  }
+  if (response) {
+    await router.push(`/badges/${response.id}`);
+  }
 }
 </script>
 

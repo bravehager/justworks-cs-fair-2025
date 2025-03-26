@@ -1,11 +1,11 @@
 <template>
-  <NuxtLink class="page-link" to="/badges/new">Create a new badge</NuxtLink>
   <div class="badge-gallery">
     <NuxtLink
       v-for="badge in badges"
       :key="badge.id"
-      :to="`/badges/${badge.id}`"
+      :to="{ name: 'badges-badgeId', params: { badgeId: badge.id } }"
       class="badge-link"
+      prefetch-on="interaction"
     >
       <Badge :badge="badge" :transition-name="`badge-${badge.id}`" />
     </NuxtLink>
@@ -33,22 +33,5 @@ defineProps<{
 
 .badge-link:hover {
   transform: translateY(-5px);
-}
-
-.page-link {
-  display: block;
-  margin-bottom: 1rem;
-  border: 1px solid #000;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  color: #000;
-  background-color: #52b0ff;
-  width: fit-content;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
 }
 </style>
