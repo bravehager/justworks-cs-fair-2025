@@ -1,5 +1,5 @@
 <template>
-  <h1>Edit Badge</h1>
+  <h1>Edit badge</h1>
   <BadgeForm :badge="badge" />
 </template>
 
