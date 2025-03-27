@@ -4,7 +4,6 @@
       v-for="badge in badges"
       :key="badge.id"
       :to="{ name: 'badges-badgeId', params: { badgeId: badge.id } }"
-      class="badge-link"
       prefetch-on="interaction"
     >
       <Badge :badge="badge" :transition-name="`badge-${badge.id}`" />
@@ -13,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Badge } from "~/types";
+import type { Badge } from "~/db/schema";
 
 defineProps<{
   badges: Badge[];
@@ -23,15 +22,19 @@ defineProps<{
 <style scoped>
 .badge-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: var(--space-xl);
+  padding: var(--space-lg);
 }
 
-.badge-link {
-  transition: transform 0.3s ease;
+@media (min-width: 48rem) {
+  .badge-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.badge-link:hover {
-  transform: translateY(-5px);
+@media (min-width: 64rem) {
+  .badge-gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 </style>

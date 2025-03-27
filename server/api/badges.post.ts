@@ -12,7 +12,6 @@ export default defineEventHandler(async (event) => {
       location: body.location,
       salary: body.salary,
       borough: body.borough,
-      color: body.color,
     })
     .returning();
 

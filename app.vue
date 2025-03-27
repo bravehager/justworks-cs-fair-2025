@@ -3,5 +3,6 @@
 </template>
 
 <script setup lang="ts">
-import "./styles/global.css";
+import "./styles/modern-normalize.css";
+import "./styles/globals.css";
 </script>

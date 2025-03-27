@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
       title: body.title,
       location: body.location,
       salary: body.salary,
-      color: body.color,
+      borough: body.borough,
     })
     .where(eq(badgesTable.id, Number(badgeId)))
     .returning();
