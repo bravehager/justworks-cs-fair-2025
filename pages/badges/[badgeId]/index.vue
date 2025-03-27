@@ -1,20 +1,13 @@
 <template>
-  <div class="links">
-    <NuxtLink class="page-link" to="/">Back to badges</NuxtLink>
-    <NuxtLink
-      class="page-link"
-      :to="{ name: 'badges-badgeId-edit', params: { badgeId: badge.id } }"
-    >
-      Edit
-    </NuxtLink>
-  </div>
   <div class="badge-container">
-    <Badge :badge="badge" :transition-name="`badge-${badge.id}`" />
+    <div class="badge-inner">
+      <Badge :badge="badge" :transition-name="`badge-${badge.id}`" />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Badge } from "~/types";
+import type { Badge } from "~/db/schema";
 
 const route = useRoute();
 
@@ -22,14 +15,15 @@ const badge = await $fetch<Badge>(`/api/badges/${route.params.badgeId}`);
 </script>
 
 <style scoped>
-.links {
-  display: flex;
-  gap: 1rem;
-}
-
 .badge-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+
+.badge-inner {
+  width: 100%;
+  max-width: 30rem;
 }
 </style>

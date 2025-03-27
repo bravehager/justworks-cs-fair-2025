@@ -1,9 +1,5 @@
 <template>
-  <div class="badge-avatar">
-    <ClientOnly>
-      <div v-html="svg"></div>
-    </ClientOnly>
-  </div>
+  <img :src="avatarUrl" class="badge-avatar" />
 </template>
 
 <script setup lang="ts">
@@ -11,23 +7,22 @@ const props = defineProps<{
   name: string;
 }>();
 
-import { createAvatar } from "@dicebear/core";
-import { adventurerNeutral } from "@dicebear/collection";
-
-const avatar = computed(() =>
-  createAvatar(adventurerNeutral, {
-    size: 100,
-    seed: props.name,
-    backgroundColor: [],
-  })
-);
-
-const svg = computed(() => avatar.value?.toString());
+const avatarUrl = computed(() => {
+  const url = new URL("https://api.dicebear.com/9.x/bottts/svg");
+  url.searchParams.set("seed", props.name);
+  url.searchParams.set("backgroundColor", "transparent");
+  return url.toString();
+});
 </script>
 
 <style scoped>
 .badge-avatar {
-  width: 100px;
-  height: 100px;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  padding: var(--space-xs);
+  border: 0.15rem solid var(--color-gray-100);
+  box-shadow: var(--color-box-shadow);
 }
 </style>

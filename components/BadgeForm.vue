@@ -31,11 +31,6 @@
       </select>
     </div>
 
-    <div>
-      <label for="color">Color</label>
-      <input type="color" id="color" v-model="form.color" required />
-    </div>
-
     <BadgeAvatar :name="form.name" />
 
     <button type="submit">Save</button>
@@ -43,9 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Badge } from "~/types";
-
-const defaultColor = "#0070d4";
+import type { Badge } from "~/db/schema";
 
 const props = defineProps<{
   badge?: Badge;
@@ -56,7 +49,6 @@ const form = ref({
   title: props.badge?.title || "",
   location: props.badge?.location || "",
   salary: props.badge?.salary || "",
-  color: props.badge?.color || defaultColor,
   borough: props.badge?.borough || "",
 });
 
