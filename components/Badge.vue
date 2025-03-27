@@ -72,6 +72,7 @@ const tilt = computed(() => {
   gap: var(--space-md);
   border: 0.15rem solid var(--color-200);
   position: relative;
+  box-shadow: var(--color-box-shadow);
 
   --tilt: v-bind(tilt);
   transform: rotate(var(--tilt));
