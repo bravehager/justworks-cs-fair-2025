@@ -4,6 +4,7 @@
     :class="color"
     :style="{ viewTransitionName: transitionName }"
   >
+    <div class="lamination"></div>
     <div class="lanyard"></div>
     <div class="pin"></div>
     <div class="header">
@@ -117,6 +118,23 @@ const tilt = computed(() => {
 .badge:hover {
   --tilt: 0deg;
   transform: translateY(-5px);
+}
+
+.lamination {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-500),
+    var(--color-500) 25%,
+    var(--color-400) 25%,
+    var(--color-400) 50%
+  );
+  opacity: 0.1;
+  border-radius: var(--radius-md);
 }
 
 .lanyard {
