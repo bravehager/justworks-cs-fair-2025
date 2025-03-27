@@ -1,7 +1,9 @@
 <template>
   <div class="badge-container">
     <div class="badge-inner">
-      <Badge :badge="badge" :transition-name="`badge-${badge.id}`" />
+      <NuxtLink to="/">
+        <Badge :badge="badge" :transition-name="`badge-${badge.id}`" />
+      </NuxtLink>
     </div>
   </div>
 </template>

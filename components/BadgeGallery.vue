@@ -24,11 +24,6 @@ defineProps<{
   display: grid;
   gap: var(--space-lg);
   padding: var(--space-lg);
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
 }
 
 @media (min-width: 48rem) {
