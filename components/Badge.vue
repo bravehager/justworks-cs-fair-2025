@@ -96,21 +96,21 @@ const tilt = computed(() => {
   --color-100: var(--color-green-100);
   --color-200: var(--color-green-200);
   --color-400: var(--color-green-400);
-  --color-500: var(--color-green-500);
+  --color-500: var(--color-green-600);
 }
 
 .badge.yellow {
   --color-100: var(--color-yellow-100);
   --color-200: var(--color-yellow-200);
   --color-400: var(--color-yellow-400);
-  --color-500: var(--color-yellow-500);
+  --color-500: var(--color-yellow-600);
 }
 
 .badge.purple {
   --color-100: var(--color-purple-100);
   --color-200: var(--color-purple-200);
   --color-400: var(--color-purple-400);
-  --color-500: var(--color-purple-500);
+  --color-500: var(--color-purple-600);
 }
 
 .badge:hover {
