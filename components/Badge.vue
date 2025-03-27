@@ -19,11 +19,11 @@
       </div>
     </div>
     <div class="salary">
-      <PhosphorIconCurrencyDollar size="1.5rem" color="var(--color-blue-500)" />
+      <PhosphorIconCurrencyDollar size="1.5rem" color="var(--color-500)" />
       <div class="salary-value">{{ badge.salary }}</div>
     </div>
     <div class="location">
-      <PhosphorIconMapPin size="1.5rem" color="var(--color-blue-500)" />
+      <PhosphorIconMapPin size="1.5rem" color="var(--color-500)" />
       <div class="location-text">{{ badge.location }}</div>
     </div>
     <div class="footer">NYC Computer Science Fair</div>
@@ -64,7 +64,7 @@ const tilt = computed(() => {
   --color-400: var(--color-gray-400);
   --color-500: var(--color-gray-500);
 
-  border-radius: 1rem;
+  border-radius: var(--radius-md);
   background-color: var(--color-100);
   padding: var(--space-md);
   display: flex;
@@ -129,7 +129,7 @@ const tilt = computed(() => {
     var(--color-400) calc(100% / 3),
     var(--color-400) calc(200% / 3)
   );
-  border-radius: 0.5rem 0.5rem 0 0;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   left: 0;
   right: 0;
   top: -1rem;
@@ -143,7 +143,7 @@ const tilt = computed(() => {
   background-color: var(--color-white);
   border: 0.15rem solid
     color-mix(in srgb, var(--color-500), var(--color-white) 75%);
-  border-radius: 50%;
+  border-radius: var(--radius-round);
   left: 0;
   right: 0;
   top: 0.5rem;
@@ -177,7 +177,7 @@ const tilt = computed(() => {
   background-color: var(--color-black);
   color: var(--color-white);
   padding: var(--space-sm) var(--space-md);
-  border-radius: 1rem;
+  border-radius: var(--radius-md);
 }
 
 .salary {

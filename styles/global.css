@@ -116,7 +116,105 @@
   --color-box-shadow: 0 4px 8px rgb(0 0 0 / 5%), 0 4px 8px rgb(0 0 0 / 10%);
 }
 
+:root {
+  --radius-xxs: 0.125rem; /* 2px */
+  --radius-xs: 0.25rem; /* 4px */
+  --radius-sm: 0.5rem; /* 8px */
+  --radius-md: 1rem; /* 16px */
+  --radius-lg: 3rem; /* 48px */
+  --radius-round: 999em; /* round radius at any height */
+}
+
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+}
+
+:root {
+  --color-button-text: var(--color-white);
+  --color-button-default: var(--color-black);
+  --color-button-hover: var(--color-gray-600);
+  --color-button-active: var(--color-black);
+  --color-button-focus: var(--color-blue-400);
+}
+
+.button {
+  text-align: center;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-weight: 700;
+  padding: var(--space-md);
+  border-radius: var(--radius-xs);
+  background-color: var(--color-button-default);
+  color: var(--color-button-text);
+  border: 0;
+  text-decoration: none;
+  min-width: 8rem;
+  line-height: 1;
+  transition: background-color 0.5s;
+}
+
+.btn-outline {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 1px currentcolor;
+  color: var(--color-transparent-button-default);
+  transition: background-color 0.5s;
+
+  &:--hover {
+    background-color: var(--color-transparent-button-hover);
+    cursor: pointer;
+  }
+
+  &:--active {
+    transition: background-color 0s;
+    background-color: var(--color-transparent-button-active);
+  }
+
+  &:disabled:not(.loading) {
+    background-color: transparent;
+    color: var(--color-text-inactive);
+  }
+}
+
+label {
+  display: block;
+}
+
+:root {
+  --color-input-border-default: var(--color-gray-300);
+  --color-input-border-hover: var(--color-gray-400);
+  --color-input-border-active: var(--color-blue-400);
+  --color-input-border-inactive: var(--color-gray-300);
+  --color-input-background-inactive: var(--color-gray-100);
+  --color-text-input-inactive: var(--color-gray-400);
+}
+
+input[type="text"] {
+  appearance: none;
+  color: inherit;
+  background-color: var(--color-page-background);
+  border: 1px solid var(--color-input-border-default);
+  border-radius: var(--radius-xs);
+  padding: var(--space-sm);
+  transition: border-color 0.25s ease-out;
+  margin: 0;
+  height: 3rem;
+  font-size: 1rem;
+  min-width: 2rem;
+
+  &::placeholder {
+    color: var(--color-text-inactive);
+  }
+  
+  &:hover {
+    border-color: var(--color-input-border-hover);
+  }
+  
+  &:disabled {
+    color: var(--color-text-input-inactive);
+    background-color: var(--color-input-background-inactive);
+  }
 }

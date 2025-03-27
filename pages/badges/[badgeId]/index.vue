@@ -1,5 +1,10 @@
 <template>
+  <NuxtLink class="back-to-gallery button btn-outline" to="/">
+    <PhosphorIconArrowLeft size="1rem" />
+    Back to Gallery
+  </NuxtLink>
   <div class="badge-container">
+    <h1>{{ badge.name }}’s Badge</h1>
     <div class="badge-inner">
       <NuxtLink to="/">
         <Badge :badge="badge" :transition-name="`badge-${badge.id}`" />
@@ -17,11 +22,20 @@ const badge = await $fetch<Badge>(`/api/badges/${route.params.badgeId}`);
 </script>
 
 <style scoped>
+.back-to-gallery {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+}
+
 .badge-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  gap: var(--space-md);
+  padding-bottom: var(--space-xl);
 }
 
 .badge-inner {

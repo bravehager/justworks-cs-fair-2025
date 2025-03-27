@@ -1,28 +1,28 @@
 <template>
-  <form @submit.prevent="handleSubmit" class="form">
+  <form @submit.prevent="emit('submit', modelValue)" class="form">
     <div>
       <label for="name">Name</label>
-      <input type="text" id="name" v-model="form.name" required />
+      <input type="text" id="name" v-model="modelValue.name" required />
     </div>
 
     <div>
       <label for="title">Title</label>
-      <input type="text" id="title" v-model="form.title" required />
+      <input type="text" id="title" v-model="modelValue.title" required />
     </div>
 
     <div>
       <label for="location">Location</label>
-      <input type="text" id="location" v-model="form.location" required />
+      <input type="text" id="location" v-model="modelValue.location" required />
     </div>
 
     <div>
       <label for="salary">Salary</label>
-      <input type="text" id="salary" v-model="form.salary" required />
+      <input type="text" id="salary" v-model="modelValue.salary" required />
     </div>
 
     <div>
       <label for="borough">Borough</label>
-      <select id="borough" v-model="form.borough" required>
+      <select id="borough" v-model="modelValue.borough" required>
         <option value="Manhattan">Manhattan</option>
         <option value="Brooklyn">Brooklyn</option>
         <option value="Queens">Queens</option>
@@ -31,7 +31,7 @@
       </select>
     </div>
 
-    <BadgeAvatar :name="form.name" />
+    <BadgeAvatar :name="modelValue.name" />
 
     <button type="submit">Save</button>
   </form>
@@ -40,37 +40,13 @@
 <script setup lang="ts">
 import type { Badge } from "~/db/schema";
 
-const props = defineProps<{
-  badge?: Badge;
-}>();
-
-const form = ref({
-  name: props.badge?.name || "",
-  title: props.badge?.title || "",
-  location: props.badge?.location || "",
-  salary: props.badge?.salary || "",
-  borough: props.badge?.borough || "",
+const modelValue = defineModel<Omit<Badge, "id" | "createdAt" | "updatedAt">>({
+  required: true,
 });
 
-const router = useRouter();
-
-async function handleSubmit() {
-  let response;
-  if (props.badge) {
-    response = await $fetch(`/api/badges/${props.badge.id}`, {
-      method: "put",
-      body: form.value,
-    });
-  } else {
-    response = await $fetch("/api/badges", {
-      method: "post",
-      body: form.value,
-    });
-  }
-  if (response) {
-    await router.push(`/badges/${response.id}`);
-  }
-}
+const emit = defineEmits<{
+  (e: "submit", badge: Omit<Badge, "id" | "createdAt" | "updatedAt">): void;
+}>();
 </script>
 
 <style scoped>

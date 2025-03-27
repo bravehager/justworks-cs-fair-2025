@@ -22,7 +22,7 @@ defineProps<{
 <style scoped>
 .badge-gallery {
   display: grid;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
   padding: var(--space-lg);
 }
 

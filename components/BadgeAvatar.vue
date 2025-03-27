@@ -19,7 +19,7 @@ const avatarUrl = computed(() => {
 .badge-avatar {
   width: 4rem;
   height: 4rem;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
   background-color: var(--color-white);
   padding: var(--space-xs);
   border: 0.15rem solid var(--color-gray-100);
