@@ -21,6 +21,16 @@
     </div>
 
     <div>
+      <label for="salary">Description</label>
+      <input
+        type="text"
+        id="description"
+        v-model="modelValue.description"
+        required
+      />
+    </div>
+
+    <div>
       <label for="borough">Borough</label>
       <select id="borough" v-model="modelValue.borough" required>
         <option value="Manhattan">Manhattan</option>

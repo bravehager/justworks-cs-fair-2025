@@ -21,11 +21,15 @@
     </div>
     <div class="salary">
       <PhosphorIconCurrencyDollar size="1.5rem" color="var(--color-500)" />
-      <div class="salary-value">{{ badge.salary }}</div>
+      <div class="salary">{{ badge.salary }}</div>
     </div>
     <div class="location">
       <PhosphorIconMapPin size="1.5rem" color="var(--color-500)" />
       <div class="location-text">{{ badge.location }}</div>
+    </div>
+    <div class="description" v-if="showDescription">
+      <PhosphorIconNote size="1.5rem" color="var(--color-500)" />
+      <div class="description-text">{{ badge.description }}</div>
     </div>
     <div class="footer">NYC Computer Science Fair</div>
   </div>
@@ -37,6 +41,7 @@ import type { Badge } from "~/db/schema";
 const props = defineProps<{
   badge: Badge;
   transitionName?: string;
+  showDescription?: boolean;
 }>();
 
 const colors = {

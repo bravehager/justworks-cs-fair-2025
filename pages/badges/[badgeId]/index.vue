@@ -7,7 +7,11 @@
     <h1>{{ badge.name }}’s Badge</h1>
     <div class="badge-inner">
       <NuxtLink to="/">
-        <Badge :badge="badge" :transition-name="`badge-${badge.id}`" />
+        <Badge
+          :badge="badge"
+          :transition-name="`badge-${badge.id}`"
+          :show-description="true"
+        />
       </NuxtLink>
     </div>
   </div>
