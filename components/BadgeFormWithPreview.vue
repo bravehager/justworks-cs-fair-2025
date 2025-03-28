@@ -1,6 +1,9 @@
 <template>
   <div class="badge-preview">
-    <Badge :badge="form" />
+    <Badge
+      :badge="form"
+      :transition-name="form.id ? `badge-${form.id}` : 'badge-new'"
+    />
     <p class="description">{{ form.description }}</p>
   </div>
 
@@ -10,14 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import type { Badge } from "~/db/schema";
+import type { BadgeForm } from "~/db/schema";
 
-const form = defineModel<Omit<Badge, "id" | "createdAt" | "updatedAt">>({
+const form = defineModel<BadgeForm>({
   required: true,
 });
 
 const emit = defineEmits<{
-  (e: "submit", form: Omit<Badge, "id" | "createdAt" | "updatedAt">): void;
+  (e: "submit", form: BadgeForm): void;
 }>();
 </script>
 

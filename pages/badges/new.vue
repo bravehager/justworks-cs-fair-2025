@@ -12,9 +12,10 @@
 </template>
 
 <script setup lang="ts">
-import type { Badge } from "~/db/schema";
+import type { BadgeForm } from "~/db/schema";
 
-const form = ref<Omit<Badge, "id" | "createdAt" | "updatedAt">>({
+const form = ref<BadgeForm>({
+  id: undefined,
   name: "",
   title: "",
   location: "",

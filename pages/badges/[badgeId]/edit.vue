@@ -1,8 +1,11 @@
 <template>
   <div class="header">
-    <NuxtLink class="button btn-outline" to="/">
+    <NuxtLink
+      class="button btn-outline"
+      :to="`/badges/${route.params.badgeId}`"
+    >
       <PhosphorIconArrowLeft size="1rem" />
-      Back to Gallery
+      Back
     </NuxtLink>
   </div>
 

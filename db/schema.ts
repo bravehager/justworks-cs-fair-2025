@@ -13,3 +13,7 @@ export const badgesTable = pgTable("badges", {
 });
 
 export type Badge = typeof badgesTable.$inferSelect;
+
+export type BadgeForm = Omit<Badge, "id" | "createdAt" | "updatedAt"> & {
+  id?: number;
+};

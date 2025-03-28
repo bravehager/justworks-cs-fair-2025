@@ -69,14 +69,14 @@
 </template>
 
 <script setup lang="ts">
-import type { Badge } from "~/db/schema";
+import type { BadgeForm } from "~/db/schema";
 
-const modelValue = defineModel<Omit<Badge, "id" | "createdAt" | "updatedAt">>({
+const modelValue = defineModel<BadgeForm>({
   required: true,
 });
 
 const emit = defineEmits<{
-  (e: "submit", badge: Omit<Badge, "id" | "createdAt" | "updatedAt">): void;
+  (e: "submit", badge: BadgeForm): void;
 }>();
 </script>
 

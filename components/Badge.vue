@@ -32,10 +32,10 @@
 </template>
 
 <script setup lang="ts">
-import type { Badge } from "~/db/schema";
+import type { Badge, BadgeForm } from "~/db/schema";
 
 const props = defineProps<{
-  badge: Omit<Badge, "id" | "createdAt" | "updatedAt"> & { id?: number };
+  badge: Badge | BadgeForm;
   transitionName?: string;
 }>();
 
