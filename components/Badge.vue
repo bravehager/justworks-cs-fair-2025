@@ -21,13 +21,13 @@
     </div>
     <div class="salary">
       <PhosphorIconCurrencyDollar size="1.5rem" color="var(--color-500)" />
-      <div class="salary-value">{{ badge.salary }}</div>
+      <div>{{ badge.salary }}</div>
     </div>
     <div class="location">
       <PhosphorIconMapPin size="1.5rem" color="var(--color-500)" />
-      <div class="location-text">{{ badge.location }}</div>
+      <div>{{ badge.location }}</div>
     </div>
-    <div class="footer">NYC Computer Science Fair</div>
+    <div class="footer">NYC Computer Science Fair 2025</div>
   </div>
 </template>
 
@@ -206,6 +206,12 @@ const tilt = computed(() => {
 }
 
 .location {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.description {
   display: flex;
   gap: var(--space-sm);
   align-items: center;

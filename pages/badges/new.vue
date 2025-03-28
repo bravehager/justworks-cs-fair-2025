@@ -1,7 +1,5 @@
 <template>
-  <NuxtLink class="all-badges button btn-outline" to="/">
-    All Badges
-  </NuxtLink>
+  <NuxtLink class="all-badges button btn-outline" to="/"> All Badges </NuxtLink>
 
   <div class="badge-form">
     <BadgeForm v-model="badge" @submit="handleSubmit" />
@@ -22,6 +20,7 @@ const badge = ref<Omit<Badge, "id" | "createdAt" | "updatedAt">>({
   location: "",
   salary: "",
   borough: "",
+  description: "",
 });
 
 async function handleSubmit() {
@@ -39,7 +38,6 @@ async function handleSubmit() {
   top: var(--space-md);
   right: var(--space-md);
 }
-
 
 .badge-form {
   padding: var(--space-xl);
