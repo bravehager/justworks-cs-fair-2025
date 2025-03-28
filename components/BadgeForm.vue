@@ -52,6 +52,7 @@
     <div>
       <label for="borough">Borough</label>
       <Select id="borough" v-model="modelValue.borough" required>
+        <option value=""></option>
         <option value="Manhattan">Manhattan</option>
         <option value="Brooklyn">Brooklyn</option>
         <option value="Queens">Queens</option>
