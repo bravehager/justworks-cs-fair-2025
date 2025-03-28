@@ -194,6 +194,11 @@ label {
   margin-bottom: var(--space-xs);
 }
 
+.secondary {
+  font-weight: 400;
+  color: var(--color-gray-500);
+}
+
 :root {
   --color-input-border-default: var(--color-gray-300);
   --color-input-border-hover: var(--color-gray-400);

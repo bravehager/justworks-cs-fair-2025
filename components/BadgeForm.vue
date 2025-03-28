@@ -45,7 +45,10 @@
     </div>
 
     <div>
-      <label for="description">About me</label>
+      <label for="description">
+        About me
+        <span class="secondary">Optional</span>
+      </label>
       <textarea id="description" v-model="modelValue.description" />
     </div>
 
