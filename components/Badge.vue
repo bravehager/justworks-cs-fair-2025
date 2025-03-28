@@ -40,11 +40,11 @@ const props = defineProps<{
 }>();
 
 const colors = {
-  Manhattan: "blue",
+  Manhattan: "purple",
   Brooklyn: "red",
   Queens: "green",
   "The Bronx": "yellow",
-  "Staten Island": "purple",
+  "Staten Island": "blue",
 } as Record<string, string>;
 
 const color = computed(() => colors[props.badge.borough] ?? "blue");
