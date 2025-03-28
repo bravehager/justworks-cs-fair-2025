@@ -7,12 +7,12 @@
     <h1>{{ badge.name }}’s Badge</h1>
     <div class="badge-inner">
       <NuxtLink to="/">
-        <Badge
-          :badge="badge"
-          :transition-name="`badge-${badge.id}`"
-          :show-description="true"
-        />
+        <Badge :badge="badge" :transition-name="`badge-${badge.id}`" />
       </NuxtLink>
+    </div>
+
+    <div>
+      <p class="description">{{ badge.description }}</p>
     </div>
   </div>
 </template>
@@ -45,5 +45,12 @@ const badge = await $fetch<Badge>(`/api/badges/${route.params.badgeId}`);
 .badge-inner {
   width: 100%;
   max-width: 30rem;
+}
+
+.description {
+  max-width: 30rem;
+  text-align: center;
+  font-size: var(--text-xl);
+  font-style: italic;
 }
 </style>

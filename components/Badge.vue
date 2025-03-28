@@ -27,11 +27,7 @@
       <PhosphorIconMapPin size="1.5rem" color="var(--color-500)" />
       <div>{{ badge.location }}</div>
     </div>
-    <div class="description" v-if="showDescription && badge.description">
-      <PhosphorIconNote size="1.5rem" color="var(--color-500)" />
-      <div>{{ badge.description }}</div>
-    </div>
-    <div class="footer">NYC Computer Science Fair</div>
+    <div class="footer">NYC Computer Science Fair 2025</div>
   </div>
 </template>
 
@@ -41,7 +37,6 @@ import type { Badge } from "~/db/schema";
 const props = defineProps<{
   badge: Badge;
   transitionName?: string;
-  showDescription?: boolean;
 }>();
 
 const colors = {
