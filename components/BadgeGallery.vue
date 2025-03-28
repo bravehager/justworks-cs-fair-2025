@@ -1,5 +1,5 @@
 <template>
-  <div class="badge-gallery">
+  <div v-auto-animate class="badge-gallery">
     <NuxtLink
       v-for="badge in badges"
       :key="badge.id"

@@ -2,14 +2,17 @@
   <div class="header">
     <div>
       <label for="borough">Borough</label>
-      <select id="borough" v-model="borough" required>
-        <option value=""></option>
-        <option value="Manhattan">Manhattan</option>
-        <option value="Brooklyn">Brooklyn</option>
-        <option value="Queens">Queens</option>
-        <option value="The Bronx">The Bronx</option>
-        <option value="Staten Island">Staten Island</option>
-      </select>
+      <div class="select-wrapper">
+        <select id="borough" v-model="borough" required>
+          <option value=""></option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Queens">Queens</option>
+          <option value="The Bronx">The Bronx</option>
+          <option value="Staten Island">Staten Island</option>
+        </select>
+        <PhosphorIconCaretDown size="1rem" class="caret" />
+      </div>
     </div>
 
     <NuxtLink class="button btn-outline" to="/badges/new">
@@ -42,11 +45,24 @@ const currentBadges = computed(() => {
   top: var(--space-md);
   right: var(--space-md);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: var(--space-md);
 }
 
 .badge-gallery {
-  padding-top: var(--space-3xl);
+  padding-top: var(--space-4xl);
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.caret {
+  position: absolute;
+  right: var(--space-sm);
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  pointer-events: none;
 }
 </style>
