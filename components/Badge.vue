@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="header-right">
-        <div class="borough">{{ badge.borough }}</div>
+        <div v-if="badge.borough" class="borough">{{ badge.borough }}</div>
       </div>
     </div>
     <div class="salary">
@@ -35,7 +35,7 @@
 import type { Badge } from "~/db/schema";
 
 const props = defineProps<{
-  badge: Badge;
+  badge: Omit<Badge, "id" | "createdAt" | "updatedAt"> & { id?: number };
   transitionName?: string;
 }>();
 
@@ -52,7 +52,7 @@ const color = computed(() => colors[props.badge.borough] ?? "blue");
 // Generate a random tilt between -3 and 3 degrees, using
 // the badge ID as the seed.
 const tilt = computed(() => {
-  const seed = props.badge.id + 42;
+  const seed = (props.badge?.id ?? -3) + 42;
   const tilt = (seed % 6) - 3;
   return `${tilt}deg`;
 });
@@ -173,6 +173,7 @@ const tilt = computed(() => {
   display: flex;
   justify-content: space-between;
   gap: var(--space-md);
+  pointer-events: none;
 }
 
 .header-left {
