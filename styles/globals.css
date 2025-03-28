@@ -181,6 +181,9 @@ a {
 
 label {
   display: block;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-xs);
 }
 
 :root {
@@ -192,7 +195,7 @@ label {
   --color-text-input-inactive: var(--color-gray-400);
 }
 
-input[type="text"] {
+input[type="text"], select {
   appearance: none;
   color: inherit;
   background-color: var(--color-page-background);
@@ -216,5 +219,15 @@ input[type="text"] {
   &:disabled {
     color: var(--color-text-input-inactive);
     background-color: var(--color-input-background-inactive);
+  }
+}
+
+select {
+  appearance: none;
+  width: 100%;
+  padding-right: calc(var(--space-sm) + 1.5rem);
+
+  @media (min-width: 48rem) {
+    width: auto;
   }
 }
