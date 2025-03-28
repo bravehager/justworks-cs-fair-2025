@@ -1,4 +1,8 @@
 <template>
+  <NuxtLink class="all-badges button btn-outline" to="/">
+    All Badges
+  </NuxtLink>
+
   <div class="badge-form">
     <BadgeForm v-model="badge" @submit="handleSubmit" />
   </div>
@@ -30,6 +34,13 @@ async function handleSubmit() {
 </script>
 
 <style scoped>
+.all-badges {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+}
+
+
 .badge-form {
   padding: var(--space-xl);
   border-radius: var(--radius-md);
