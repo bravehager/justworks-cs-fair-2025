@@ -45,7 +45,7 @@
     </div>
 
     <div>
-      <label for="description">Description</label>
+      <label for="description">About me</label>
       <textarea id="description" v-model="modelValue.description" />
     </div>
 
