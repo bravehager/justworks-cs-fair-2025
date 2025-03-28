@@ -7,6 +7,7 @@ export const badgesTable = pgTable("badges", {
   location: text("location").notNull(),
   salary: text("salary").notNull(),
   borough: text("borough").notNull(),
+  description: text("description").default(""),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });

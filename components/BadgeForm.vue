@@ -21,9 +21,9 @@
     </div>
 
     <div>
-      <label for="salary">Description</label>
+      <label for="description">Description</label>
       <input
-        type="text"
+        type="textarea"
         id="description"
         v-model="modelValue.description"
         required

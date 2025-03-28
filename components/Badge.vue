@@ -27,7 +27,7 @@
       <PhosphorIconMapPin size="1.5rem" color="var(--color-500)" />
       <div class="location-text">{{ badge.location }}</div>
     </div>
-    <div class="description" v-if="showDescription">
+    <div class="description" v-if="showDescription && badge.description">
       <PhosphorIconNote size="1.5rem" color="var(--color-500)" />
       <div class="description-text">{{ badge.description }}</div>
     </div>
@@ -211,6 +211,12 @@ const tilt = computed(() => {
 }
 
 .location {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.description {
   display: flex;
   gap: var(--space-sm);
   align-items: center;
