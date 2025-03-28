@@ -12,6 +12,7 @@
     </div>
     <div class="badge-preview">
       <Badge :badge="form" />
+      <p class="description">{{ form.description }}</p>
     </div>
   </main>
 </template>
@@ -66,5 +67,16 @@ main {
   max-width: 30rem;
   margin-top: var(--space-lg);
   padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.description {
+  max-width: 30rem;
+  text-align: center;
+  font-size: var(--text-lg);
+  font-style: italic;
 }
 </style>
