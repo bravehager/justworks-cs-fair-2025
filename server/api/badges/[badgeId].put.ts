@@ -14,6 +14,7 @@ export default defineEventHandler(async (event) => {
       location: body.location,
       salary: body.salary,
       borough: body.borough,
+      description: body.description,
     })
     .where(eq(badgesTable.id, Number(badgeId)))
     .returning();

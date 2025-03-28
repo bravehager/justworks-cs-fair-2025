@@ -2,7 +2,8 @@
   font-family: Oately;
   font-style: normal;
   font-weight: 400;
-  src: url('https://payroll.justworks.com/fonts/Oately-Regular.woff2') format('woff2');
+  src: url("https://payroll.justworks.com/fonts/Oately-Regular.woff2")
+    format("woff2");
   font-display: swap;
 }
 
@@ -10,7 +11,8 @@
   font-family: Oately;
   font-style: normal;
   font-weight: 700;
-  src: url('https://payroll.justworks.com/fonts/Oately-Bold.woff2') format('woff2');
+  src: url("https://payroll.justworks.com/fonts/Oately-Bold.woff2")
+    format("woff2");
   font-display: swap;
 }
 
@@ -18,7 +20,8 @@
   font-family: Oately;
   font-style: normal;
   font-weight: 900;
-  src: url('https://payroll.justworks.com/fonts/Oately-BoldDisplay.woff2') format('woff2');
+  src: url("https://payroll.justworks.com/fonts/Oately-BoldDisplay.woff2")
+    format("woff2");
   font-display: swap;
 }
 
@@ -60,7 +63,7 @@
   --color-yellow-800: #753204;
   --color-yellow-dark: #643f00;
   --color-green-100: #ddf3ea;
-  --color-green-200: #98E2C5;
+  --color-green-200: #98e2c5;
   --color-green-300: #65c9a3;
   --color-green-400: #00a46b;
   --color-green-600: #008354;
@@ -157,6 +160,11 @@ a {
   transition: background-color 0.5s;
 }
 
+.btn-accent {
+  background-color: var(--color-blue-600);
+  color: var(--color-white);
+}
+
 .btn-outline {
   background-color: transparent;
   box-shadow: inset 0 0 0 1px currentcolor;
@@ -186,16 +194,24 @@ label {
   margin-bottom: var(--space-xs);
 }
 
+.secondary {
+  font-weight: 400;
+  color: var(--color-gray-500);
+}
+
 :root {
   --color-input-border-default: var(--color-gray-300);
   --color-input-border-hover: var(--color-gray-400);
   --color-input-border-active: var(--color-blue-400);
   --color-input-border-inactive: var(--color-gray-300);
   --color-input-background-inactive: var(--color-gray-100);
+  --color-text-inactive: var(--color-gray-400);
   --color-text-input-inactive: var(--color-gray-400);
 }
 
-input[type="text"], select {
+input[type="text"],
+select,
+textarea {
   appearance: none;
   color: inherit;
   background-color: var(--color-page-background);
@@ -211,11 +227,11 @@ input[type="text"], select {
   &::placeholder {
     color: var(--color-text-inactive);
   }
-  
+
   &:hover {
     border-color: var(--color-input-border-hover);
   }
-  
+
   &:disabled {
     color: var(--color-text-input-inactive);
     background-color: var(--color-input-background-inactive);

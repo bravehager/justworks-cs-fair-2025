@@ -1,20 +1,21 @@
 <template>
-  <NuxtLink class="all-badges button btn-outline" to="/"> All Badges </NuxtLink>
+  <div class="header">
+    <NuxtLink class="button btn-outline" to="/">
+      <PhosphorIconArrowLeft size="1rem" />
+      Back to Gallery
+    </NuxtLink>
+  </div>
 
-  <div class="badge-form">
-    <BadgeForm v-model="badge" @submit="handleSubmit" />
-  </div>
-  <div class="badge-preview">
-    <BadgePreview />
-  </div>
+  <main>
+    <BadgeFormWithPreview v-model="form" @submit="handleSubmit" />
+  </main>
 </template>
 
 <script setup lang="ts">
-import type { Badge } from "~/db/schema";
+import type { BadgeForm } from "~/db/schema";
 
-const router = useRouter();
-
-const badge = ref<Omit<Badge, "id" | "createdAt" | "updatedAt">>({
+const form = ref<BadgeForm>({
+  id: undefined,
   name: "",
   title: "",
   location: "",
@@ -23,25 +24,36 @@ const badge = ref<Omit<Badge, "id" | "createdAt" | "updatedAt">>({
   description: "",
 });
 
+const router = useRouter();
+
 async function handleSubmit() {
   const response = await $fetch("/api/badges", {
     method: "post",
-    body: badge.value,
+    body: form.value,
   });
   await router.push(`/badges/${response.id}`);
 }
 </script>
 
 <style scoped>
-.all-badges {
+.header {
   position: absolute;
   top: var(--space-md);
-  right: var(--space-md);
+  left: var(--space-md);
 }
 
-.badge-form {
-  padding: var(--space-xl);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-gray-200);
+main {
+  padding: var(--space-4xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 48rem) {
+  main {
+    flex-direction: row-reverse;
+    gap: var(--space-4xl);
+  }
 }
 </style>

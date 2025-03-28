@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="header-right">
-        <div class="borough">{{ badge.borough }}</div>
+        <div v-if="badge.borough" class="borough">{{ badge.borough }}</div>
       </div>
     </div>
     <div class="salary">
@@ -32,19 +32,19 @@
 </template>
 
 <script setup lang="ts">
-import type { Badge } from "~/db/schema";
+import type { Badge, BadgeForm } from "~/db/schema";
 
 const props = defineProps<{
-  badge: Badge;
+  badge: Badge | BadgeForm;
   transitionName?: string;
 }>();
 
 const colors = {
-  Manhattan: "blue",
+  Manhattan: "purple",
   Brooklyn: "red",
   Queens: "green",
   "The Bronx": "yellow",
-  "Staten Island": "purple",
+  "Staten Island": "blue",
 } as Record<string, string>;
 
 const color = computed(() => colors[props.badge.borough] ?? "blue");
@@ -52,7 +52,7 @@ const color = computed(() => colors[props.badge.borough] ?? "blue");
 // Generate a random tilt between -3 and 3 degrees, using
 // the badge ID as the seed.
 const tilt = computed(() => {
-  const seed = props.badge.id + 42;
+  const seed = (props.badge?.id ?? -3) + 42;
   const tilt = (seed % 6) - 3;
   return `${tilt}deg`;
 });
@@ -65,6 +65,7 @@ const tilt = computed(() => {
   --color-400: var(--color-gray-400);
   --color-500: var(--color-gray-500);
 
+  width: 100%;
   border-radius: var(--radius-md);
   background-color: var(--color-100);
   padding: var(--space-md);
@@ -173,6 +174,7 @@ const tilt = computed(() => {
   display: flex;
   justify-content: space-between;
   gap: var(--space-md);
+  pointer-events: none;
 }
 
 .header-left {
