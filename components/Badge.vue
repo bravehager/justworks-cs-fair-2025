@@ -65,6 +65,7 @@ const tilt = computed(() => {
   --color-400: var(--color-gray-400);
   --color-500: var(--color-gray-500);
 
+  width: 100%;
   border-radius: var(--radius-md);
   background-color: var(--color-100);
   padding: var(--space-md);

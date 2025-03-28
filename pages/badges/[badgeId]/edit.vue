@@ -7,12 +7,13 @@
   </div>
 
   <main>
-    <div class="badge-form">
-      <BadgeForm v-model="form" @submit="handleSubmit" />
-    </div>
     <div class="badge-preview">
       <Badge :badge="form" />
       <p class="description">{{ form.description }}</p>
+    </div>
+
+    <div class="badge-form">
+      <BadgeForm v-model="form" @submit="handleSubmit" />
     </div>
   </main>
 </template>
@@ -47,10 +48,20 @@ async function handleSubmit() {
 main {
   padding: var(--space-4xl);
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
+@media (min-width: 48rem) {
+  main {
+    flex-direction: row-reverse;
+    gap: var(--space-4xl);
+  }
+}
+
 .badge-form {
+  width: 100%;
   max-width: 30rem;
   flex-grow: 1;
   margin-top: var(--space-lg);
@@ -61,9 +72,9 @@ main {
 
 .badge-preview {
   flex-grow: 1;
+  width: 100%;
   max-width: 30rem;
   margin-top: var(--space-lg);
-  padding: var(--space-xl);
   display: flex;
   flex-direction: column;
   align-items: center;
