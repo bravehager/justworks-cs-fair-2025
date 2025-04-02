@@ -1,4 +1,4 @@
-import { pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
 export const badgesTable = pgTable("badges", {
   id: serial("id").primaryKey(),
@@ -8,6 +8,7 @@ export const badgesTable = pgTable("badges", {
   salary: text("salary").notNull(),
   borough: text("borough").notNull(),
   description: text("description").default(""),
+  idempotencyKey: uuid("idempotency_key").unique().defaultRandom(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });

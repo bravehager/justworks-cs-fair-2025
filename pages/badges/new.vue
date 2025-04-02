@@ -22,6 +22,7 @@ const form = ref<BadgeForm>({
   salary: "",
   borough: "",
   description: "",
+  idempotencyKey: crypto.randomUUID(),
 });
 
 const router = useRouter();
