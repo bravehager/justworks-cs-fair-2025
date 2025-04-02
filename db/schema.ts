@@ -8,7 +8,7 @@ export const badgesTable = pgTable("badges", {
   salary: text("salary").notNull(),
   borough: text("borough").notNull(),
   description: text("description").default(""),
-  idempotencyKey: uuid("idempotency_key").unique().defaultRandom().notNull(),
+  idempotencyKey: uuid("idempotency_key").unique().defaultRandom(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
