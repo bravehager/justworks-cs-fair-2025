@@ -13,6 +13,10 @@ export default defineEventHandler(async (event) => {
       salary: body.salary,
       borough: body.borough,
       description: body.description,
+      idempotencyKey: body.idempotencyKey,
+    })
+    .onConflictDoNothing({
+      target: [badgesTable.idempotencyKey],
     })
     .returning();
 
